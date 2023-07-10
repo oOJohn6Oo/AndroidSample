@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name="io.john6.sample.dialog.DialogTestActivity"
+            android:theme="@style/CustomAtt"
+            android:configChanges="orientation|screenSize|keyboardHidden|keyboard"/>
+    </application>
+</manifest>

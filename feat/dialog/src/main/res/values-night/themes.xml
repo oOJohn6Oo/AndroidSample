@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ModalBottomSheetDialog" parent="BaseModalBottomSheetDialog">
+        <item name="android:colorBackground">@android:color/black</item>
+        <item name="colorOnBackground">@android:color/white</item>
+        <item name="colorSurface">@android:color/black</item>
+        <item name="colorOnSurface">@android:color/white</item>
+    </style>
+    <style name="CustomBottomSheetDialog" parent="BaseCustomBottomSheetDialog">
+        <item name="android:colorBackground">@android:color/black</item>
+        <item name="colorOnBackground">@android:color/white</item>
+        <item name="colorSurface">@android:color/black</item>
+        <item name="colorOnSurface">@android:color/white</item>
+    </style>
+
+    <style name="CustomNormalDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!--        启用后，Material 相关控件的颜色会根据 Elevation 的值动态变化-->
+        <item name="elevationOverlayEnabled">true</item>
+        <item name="elevationOverlayColor">?attr/colorOnSurface</item>
+        <item name="android:colorBackground">@android:color/black</item>
+        <item name="colorOnBackground">@android:color/white</item>
+        <item name="colorSurface">@android:color/black</item>
+        <item name="colorOnSurface">@android:color/white</item>
+        <item name="android:windowMinWidthMinor">65%</item>
+    </style>
+</resources>
