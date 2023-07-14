@@ -1,6 +1,12 @@
 ## 各种 Dialog 实现最佳实践
 
-![Home Page]
+<img src="https://github.com/oOJohn6Oo/AndroidSample/releases/download/v0.1/dialog_main_screen.webp" width="480" />
+
+
+| Modal | Custom |
+| :----: | :----: |
+| | |
+
 
 ### 1. 包含的 Dialog 类型
 
@@ -24,4 +30,7 @@
 [DemoNormalDialog]: ./src/main/kotlin/io/john6/sample/dialog/DemoNormalDialog.kt
 [DemoModalBottomSheetDialog]: ./src/main/kotlin/io/john6/sample/dialog/DemoModalBottomSheetDialog.kt
 [DemoCustomBottomSheetDialog]: ./src/main/kotlin/io/john6/sample/dialog/DemoCustomBottomSheetDialog.kt
-[Home Page]: ./feat/HomePage/img.webp
+[Home Page]: https://github.com/oOJohn6Oo/AndroidSample/releases/download/v0.1/dialog_main_screen.webp
+
+[Modal Video]: https://github.com/oOJohn6Oo/AndroidSample/releases/download/v0.1/modal_bottom_sheet.mp4
+[Custom Video]: https://github.com/oOJohn6Oo/AndroidSample/releases/download/v0.1/custom_bottom_sheet.mp4

@@ -37,4 +37,4 @@
 [DemoDialogFragment]: ./src/main/kotlin/io/john6/sample/fragmentcommunicate/DemoDialogFragment.kt
 [DemoViewModel]: ./src/main/kotlin/io/john6/sample/fragmentcommunicate/DemoViewModel.kt
 [CommonScreen]: ./src/main/kotlin/io/john6/sample/fragmentcommunicate/CommonScreen.kt
-[Home Page]: ./img.webp
+[Home Page]: https://github.com/oOJohn6Oo/AndroidSample/releases/download/v0.1/fc_main_screen.webp

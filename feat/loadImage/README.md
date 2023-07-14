@@ -1,13 +1,11 @@
 ## 图片读写相关的最佳实践
 
-> 读：展示了使用3种 Intent 的方式及获取`READ_EXTERNAL_STORAGE`权限的方式来获取图片信息并显示到界面</br>
-> 写：展示了如何兼容所有版本将图片文件写入到`/Pictures`文件夹下
+![Home Page]
 
-
-<p float="left">
-  <img src="https://raw.githubusercontent.com/github/explore/8baf984947f4d9c32006bd03fa4c51ff91aadf8d/topics/android/android.png" width="240" />
-  <img src="https://raw.githubusercontent.com/github/explore/4479d2a2c854198cb00160f8593519c14dc3b905/topics/kotlin/kotlin.png" width="240" /> 
-</p>
+| 读 | 写 |
+| :----: | :----: |
+| 展示了使用3种 Intent 的方式及获取`READ_EXTERNAL_STORAGE`权限的方式来获取图片信息并显示到界面 | 展示了如何兼容所有版本将图片文件写入到`/Pictures`文件夹下 |
+| ![Read Demo] | ![Write Demo] |
 
 ### 1. 权限申请最小化
 
@@ -239,5 +237,6 @@ try {
 
 
 [Util]: ./src/main/kotlin/io/john6/sample/loadimage/Util.kt#L235
-[Read Demo]: ./src/main/kotlin/io/john6/sample/loadimage/img.webp
-[Write Demo]: ./src/main/kotlin/io/john6/sample/loadimage/img.webp
+[Home Page]: https://github.com/oOJohn6Oo/AndroidSample/releases/download/v0.1/load_image_main_screen.webp
+[Read Demo]: ./src/main/kotlin/io/john6/sample/loadimage/read_test.webp
+[Write Demo]: ./src/main/kotlin/io/john6/sample/loadimage/write_test.webp
