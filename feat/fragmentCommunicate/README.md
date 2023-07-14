@@ -2,13 +2,11 @@
 
 > 这里以 Activity、Fragment 调用 DialogFragment 为例，演示如何通过 FragmentResult API 实现 Fragment 间通信。
 
-![Home Page]
+<img src="https://github.com/oOJohn6Oo/AndroidSample/assets/24718357/ba0b5194-cf6a-4e34-892b-489046fd6fcf" width="320" />
 
 ### 1. Fragment 间通信的方式
 
-<p>
 <img src="https://miro.medium.com/v2/resize:fit:2000/format:webp/1*MX8AYVjiroArN6AouD-afg.png" width="600" />
-</p>
 
 1. ViewModel
 2. ~~TargetFragment~~
