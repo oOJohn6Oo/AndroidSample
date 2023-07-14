@@ -1,6 +1,6 @@
 ## 各种 Dialog 实现最佳实践
 
-<img src="https://github.com/oOJohn6Oo/AndroidSample/releases/download/v0.1/dialog_main_screen.webp" width="480" />
+<img src="https://github.com/oOJohn6Oo/AndroidSample/assets/24718357/fdbe7767-349d-4816-9849-d7801959a935" width="320" />
 
 
 https://github.com/oOJohn6Oo/AndroidSample/assets/24718357/5b2d13a4-0fb0-4a89-9172-f04fff667808
@@ -29,7 +29,3 @@ https://github.com/oOJohn6Oo/AndroidSample/assets/24718357/35b369c7-6184-47cf-a5
 [DemoNormalDialog]: ./src/main/kotlin/io/john6/sample/dialog/DemoNormalDialog.kt
 [DemoModalBottomSheetDialog]: ./src/main/kotlin/io/john6/sample/dialog/DemoModalBottomSheetDialog.kt
 [DemoCustomBottomSheetDialog]: ./src/main/kotlin/io/john6/sample/dialog/DemoCustomBottomSheetDialog.kt
-[Home Page]: https://github.com/oOJohn6Oo/AndroidSample/releases/download/v0.1/dialog_main_screen.webp
-
-[Modal Video]: https://github.com/oOJohn6Oo/AndroidSample/releases/download/v0.1/modal_bottom_sheet.mp4
-[Custom Video]: https://github.com/oOJohn6Oo/AndroidSample/releases/download/v0.1/custom_bottom_sheet.mp4
