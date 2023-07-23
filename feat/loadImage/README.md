@@ -37,7 +37,7 @@ contentResolver.query(
 
 #### 2. 通过 `Intent.ACTION_PICK` Intent 完成
 > 优点：不需要申请权限｜可以多选图片｜有的系统有定制的选择器界面</br>
-> 缺点：无法限制选择数量等 ｜**如果 APP 包含 `CAMERA` 权限，使用这个 Intent 也需要申请权限**
+> 缺点：无法限制选择数量
 
 Android 12 荣耀70 上测试可以获取到以下 `columnName`：
 
