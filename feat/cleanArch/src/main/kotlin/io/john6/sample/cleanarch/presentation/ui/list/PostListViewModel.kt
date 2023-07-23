@@ -73,7 +73,7 @@ class PostListViewModel(private val getPostsUseCase: GetPostsUseCase) : ViewMode
 
 data class PostListUiState(
     val postList: List<PostModel> = emptyList(),
-    val isLoading: Boolean = false,
+    val isLoading: Boolean = true,
     val error: String = "",
     val errorResId: Int = 0,
 )

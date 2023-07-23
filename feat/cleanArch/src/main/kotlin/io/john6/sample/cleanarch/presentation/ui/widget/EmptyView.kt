@@ -1,5 +1,6 @@
 package io.john6.sample.cleanarch.presentation.ui.widget
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -8,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import io.john6.johnbase.compose.spaceLarge
@@ -36,15 +38,23 @@ fun EmptyView(onBtnRetryClick: () -> Unit) {
 @Composable
 fun LoadingDialog() {
     Dialog(onDismissRequest = {}) {
-        LoadingView()
+        LoadingView(
+            Modifier.background(
+                MaterialTheme.colors.surface, MaterialTheme.shapes.large
+            )
+        )
     }
 }
 
 @Composable
 fun LoadingView(modifier: Modifier = Modifier) {
-    Card(modifier = modifier) {
-        Box(modifier = Modifier.padding(MaterialTheme.spaceLarge)) {
-            CircularProgressIndicator()
-        }
+    Box(modifier = modifier, contentAlignment = Alignment.Center) {
+        CircularProgressIndicator(modifier = Modifier.padding(MaterialTheme.spaceLarge))
     }
+}
+
+@Preview
+@Composable
+fun PreviewLoadingView() {
+    LoadingView(Modifier.fillMaxSize())
 }

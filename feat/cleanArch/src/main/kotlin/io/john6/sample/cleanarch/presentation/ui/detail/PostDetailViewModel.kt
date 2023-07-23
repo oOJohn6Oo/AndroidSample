@@ -70,6 +70,7 @@ class PostDetailViewModel(
     }
 
     companion object {
+        @Suppress("UNCHECKED_CAST")
         fun provideFactory(postId: String) = object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 return PostDetailViewModel(

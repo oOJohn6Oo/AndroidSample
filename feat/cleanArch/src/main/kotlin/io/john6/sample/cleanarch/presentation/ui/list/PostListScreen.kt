@@ -34,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import io.john6.johnbase.compose.JohnAppTheme
@@ -73,9 +74,9 @@ fun PostListScreen(postListUiState: PostListUiState, onUiEvent: (PostListUiEvent
             contentPadding = WindowInsets.safeDrawing.add(
                 WindowInsets(
                     left = MaterialTheme.spaceLarge,
-                    top = MaterialTheme.spaceLarge,
+                    top = 0.dp,
                     right = MaterialTheme.spaceLarge,
-                    bottom = MaterialTheme.spaceLarge
+                    bottom = 0.dp
                 )
             ).asPaddingValues()
         ) {
@@ -96,10 +97,16 @@ fun PostListScreen(postListUiState: PostListUiState, onUiEvent: (PostListUiEvent
 
 @Composable
 fun PostItem(post: PostModel, onClick: () -> Unit = {}) {
-    Card(onClick = onClick) {
-        Column(modifier = Modifier.fillMaxWidth()) {
+    Card(onClick = onClick, modifier = Modifier.fillMaxWidth().padding(top = MaterialTheme.spaceLarge)) {
+        Column(modifier = Modifier.padding(MaterialTheme.spaceLarge)) {
             Text(text = post.title)
             Text(text = post.userId, modifier = Modifier.align(Alignment.End))
         }
     }
+}
+
+@Preview
+@Composable
+fun PreviewPostListScreen() {
+    PostListScreen(postListUiState = PostListUiState(), onUiEvent = {}, goDetailScreen = {})
 }

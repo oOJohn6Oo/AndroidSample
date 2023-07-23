@@ -11,13 +11,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.Card
+import androidx.compose.material.LocalContentColor
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import io.john6.johnbase.compose.JohnAppTheme
 import io.john6.johnbase.compose.spaceLarge
 import io.john6.sample.cleanarch.domain.model.PostModel
@@ -49,27 +53,28 @@ fun PostDetailScreen(
         onUiEvent(PostDetailUiEvent.ConsumeError)
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colors.background)
-            .windowInsetsPadding(WindowInsets.safeDrawing)
-            .padding(MaterialTheme.spaceLarge)
+    CompositionLocalProvider(
+        LocalContentColor provides MaterialTheme.colors.onBackground
     ) {
-        when {
-            postDetailUiState.isLoading -> {
-                LoadingView(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                )
-            }
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colors.background)
+                .windowInsetsPadding(WindowInsets.safeDrawing)
+                .padding(MaterialTheme.spaceLarge)
+        ) {
+            when {
+                postDetailUiState.isLoading -> {
+                    LoadingView(modifier = Modifier.fillMaxSize().background(Color.Transparent))
+                }
 
-            postDetailUiState.post.body.isNotEmpty() -> {
-                PostDetailItem(postDetailUiState.post)
-            }
+                postDetailUiState.post.body.isNotEmpty() -> {
+                    PostDetailItem(postDetailUiState.post)
+                }
 
-            else -> {
-                EmptyView { onUiEvent(PostDetailUiEvent.LoadPost) }
+                else -> {
+                    EmptyView { onUiEvent(PostDetailUiEvent.LoadPost) }
+                }
             }
         }
     }
@@ -82,13 +87,9 @@ fun PostDetailItem(post: PostModel) {
     Text(text = post.body, style = MaterialTheme.typography.body1)
 }
 
-
+@Preview
 @Composable
-fun PostDetail(post: PostModel) {
-    Card {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Text(text = post.title)
-            Text(text = post.userId, modifier = Modifier.align(Alignment.End))
-        }
+fun PreviewPostDetailScreen() {
+    PostDetailScreen(postDetailUiState = PostDetailUiState(), onUiEvent = {}) {
     }
 }
