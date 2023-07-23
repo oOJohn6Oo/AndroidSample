@@ -5,7 +5,6 @@ import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
 import android.content.pm.PackageManager
-import android.content.res.Resources
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -14,32 +13,6 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.text.format.DateFormat
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.ButtonColors
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.ButtonElevation
-import androidx.compose.material.LocalContentAlpha
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ProvideTextStyle
-import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.semantics.role
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.unit.dp
 import com.john6.johnbase.util.log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -58,23 +31,25 @@ fun isPermissionGranted(context: Context, permission: String): Boolean {
  * @param context 读取 Uri 中的数据需要
  * @param desireSize 调用方想要的大小，通过大小比较后计算出压缩比例，缓解内存压力，注意，如果大于原图尺寸无效
  */
-suspend fun loadImage(context: Context, uri: Uri, desireSize:Int): Bitmap? = withContext(Dispatchers.IO){
-    val time = System.currentTimeMillis()
-    val options = context.contentResolver.openInputStream(uri)?.use {
-        BitmapFactory.Options().also { op ->
-            op.inJustDecodeBounds = true
-            BitmapFactory.decodeStream(it, null, op)
-            op.inSampleSize = calculateInSampleSize(op, desireSize, desireSize)
-            op.inJustDecodeBounds = false
-        }
-    }?:return@withContext null
+suspend fun loadImage(context: Context, uri: Uri, desireSize: Int): Bitmap? =
+    withContext(Dispatchers.IO) {
+        val time = System.currentTimeMillis()
+        uri.toString().log()
+        val options = context.contentResolver.openInputStream(uri)?.use {
+            BitmapFactory.Options().also { op ->
+                op.inJustDecodeBounds = true
+                BitmapFactory.decodeStream(it, null, op)
+                op.inSampleSize = calculateInSampleSize(op, desireSize, desireSize)
+                op.inJustDecodeBounds = false
+            }
+        } ?: return@withContext null
 
-    val bmp = context.contentResolver.openInputStream(uri)?.use {
-        BitmapFactory.decodeStream(it, null, options)
+        val bmp = context.contentResolver.openInputStream(uri)?.use {
+            BitmapFactory.decodeStream(it, null, options)
+        }
+        "success:${bmp != null} took ${System.currentTimeMillis() - time}ms to loadImage $uri".log()
+        return@withContext bmp
     }
-    "success:${bmp != null} took ${System.currentTimeMillis() - time}ms to loadImage $uri".log()
-    return@withContext bmp
-}
 
 fun calculateInSampleSize(
     options: BitmapFactory.Options, reqWidth: Int, reqHeight: Int
@@ -111,7 +86,7 @@ suspend fun getAllImageInfoFromLocalStorage(
     val orderBy = MediaStore.Images.Media.DATE_TAKEN
 
     val onGetCursor: (Cursor, Uri?) -> Unit = { cursor, uri ->
-        getImageInfoByCursor(cursor, uri) { it:ImageInfo ->
+        getImageInfoByCursor(cursor, uri) { it: ImageInfo ->
             // 打印出通过 cursor 能获取到的此 uri 的所有信息
             cursor.columnNames.forEach { columnName ->
                 columnName.toString().log()
@@ -157,7 +132,7 @@ suspend fun getAllImageInfoFromLocalStorage(
  * @param uri [Uri]，如果不为空，则使用此 uri 作为最终回调给 [onGetImageInfo]的 [ImageInfo] 的 uri
  * @param onGetImageInfo 获取到图片信息时的回调
  */
-fun getImageInfoByCursor(cursor: Cursor,uri: Uri?, onGetImageInfo: (ImageInfo) -> Unit) {
+fun getImageInfoByCursor(cursor: Cursor, uri: Uri?, onGetImageInfo: (ImageInfo) -> Unit) {
     "getImageInfoByCursor".log()
     val idColumn = cursor.getColumnIndex(MediaStore.Images.ImageColumns._ID)
     val pathColumn = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
@@ -208,16 +183,26 @@ fun getImageInfoByCursor(cursor: Cursor,uri: Uri?, onGetImageInfo: (ImageInfo) -
                 -1L
             }
 
-            val selectedUri = try {
+            val selectedUri = uri ?: try {
                 ContentUris.withAppendedId(
                     MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
                     cursor.getLong(idColumn)
                 )
             } catch (e: Exception) {
-                uri
+                null
             } ?: continue
 
-            onGetImageInfo(ImageInfo(name, folderName, imageSize, path, selectedUri, dateTakenTime, fileSize))
+            onGetImageInfo(
+                ImageInfo(
+                    name,
+                    folderName,
+                    imageSize,
+                    path,
+                    selectedUri,
+                    dateTakenTime,
+                    fileSize
+                )
+            )
         } catch (e: Exception) {
             e.message?.log()
         }
@@ -227,7 +212,6 @@ fun getImageInfoByCursor(cursor: Cursor,uri: Uri?, onGetImageInfo: (ImageInfo) -
 /**
  * 保存图片到相册
  *
- * @param context 上下文
  * @param srcImgPath 原始图片路径
  * @param prefix 图片名前缀
  * @param saveDirName 保存目录名

@@ -236,5 +236,45 @@ try {
 }
 ```
 
+### 3. Bonus 通过`Intent.ACTION_GET_CONTENT`创建多种类型文件的选择器
+
+```kotlin
+class PickImageAndPDF : ActivityResultContract<String, List<Uri>>() {
+    override fun createIntent(context: Context, input: String): Intent {
+        return Intent(Intent.ACTION_GET_CONTENT)
+            .setType("*/*")
+            .putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+            .putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("application/pdf", "image/*"))
+    }
+    override fun parseResult(resultCode: Int, intent: Intent?): List<Uri> {
+        if (intent == null) return emptyList()
+        if (resultCode != Activity.RESULT_OK) return emptyList()
+        val dataUri = intent.data
+        if (dataUri != null) return listOf(dataUri)
+
+        return intent.clipData?.let {
+            val res = mutableListOf<Uri>()
+            val count = it.itemCount
+            for (i in 0 until count) {
+                it.getItemAt(i)?.uri?.let { uri ->
+                    res.add(uri)
+                }
+            }
+            res
+        }?: emptyList()
+    }
+}
+```
+
+这样可以同时选 PDF 和 图片，支持多选单选，默认单选，选中后能获取到的 columnName 都一致，Android 12 测试有：
+
+```text
+document_id
+mime_type
+_display_name
+last_modified
+flags
+_size
+```
 
 [Util]: ./src/main/kotlin/io/john6/sample/loadimage/Util.kt#L235

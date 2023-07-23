@@ -16,7 +16,9 @@ class PickImage : ActivityResultContract<String, List<Uri>>() {
         if (intent == null) return emptyList()
         if (resultCode != Activity.RESULT_OK) return emptyList()
         val dataUri = intent.data
-        if (dataUri != null) return listOf(dataUri)
+        if (dataUri != null) return listOf(dataUri).apply {
+            println("dataUri: $dataUri")
+        }
 
         return intent.clipData?.let {
             val res = mutableListOf<Uri>()

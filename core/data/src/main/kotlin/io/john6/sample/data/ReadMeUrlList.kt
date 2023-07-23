@@ -5,14 +5,13 @@ object ReadMeUrlList{
     const val projectReadMeUrl = "$host/README.md"
 
     object LoadImage{
-        const val mainActivityUrl = "$host/feat/loadImage/README_activity.md"
-        const val fragmentUrl = "$host/feat/loadImage/README_fragment.md"
-        const val dialogUrl = "$host/feat/loadImage/README_dialog.md"
     }
 
     object Dialog{
-        const val mainActivityUrl = "$host/feat/dialog/README_activity.md"
-        const val dialogUrl = "$host/feat/dialog/README_dialog.md"
+        const val fullscreenDialogUrl = "$host/feat/dialog/README_fullscreen.md"
+        const val normalDialogUrl = "$host/feat/dialog/README_normal.md"
+        const val modalDialogUrl = "$host/feat/dialog/README_modalBottomSheet.md"
+        const val customDialogUrl = "$host/feat/dialog/README_customBottomSheet.md"
     }
 
     object FragmentCommunicate{

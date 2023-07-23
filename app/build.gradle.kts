@@ -28,7 +28,8 @@ android {
 dependencies {
     runtimeOnly(project(":feat:loadImage"))
     runtimeOnly(project(":feat:dialog"))
-    runtimeOnly(project(":feat:fragmentcommunicate"))
+    runtimeOnly(project(":feat:fragmentCommunicate"))
+    runtimeOnly(project(":feat:cleanArch"))
     implementation(project(":core:ui"))
     implementation(project(":core:data"))
 }

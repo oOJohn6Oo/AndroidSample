@@ -43,6 +43,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
 import io.john6.johnbase.compose.JohnAppTheme
 import io.john6.johnbase.compose.spaceLarge
+import io.john6.sample.data.ReadMeUrlList
+import io.john6.sample.ui.WebActivity
 import kotlin.math.roundToInt
 
 class DialogTestActivity : AppCompatActivity() {
@@ -54,9 +56,14 @@ class DialogTestActivity : AppCompatActivity() {
                 showFullScreenDialog = this::showFullScreenDialog,
                 showNormalScreenDialog = this::showNormalScreenDialog,
                 showBottomSheetScreenDialog = this::showBottomSheetScreenDialog,
-                showCustomBottomSheetScreenDialog = this::showCustomBottomSheetScreenDialog
+                showCustomBottomSheetScreenDialog = this::showCustomBottomSheetScreenDialog,
+                showReadMeScreen = this::showReadMeScreen
             )
         }
+    }
+
+    private fun showReadMeScreen(url: String) {
+        WebActivity.show(this, url)
     }
 
     private fun showFullScreenDialog(itemCount: Int) {
@@ -82,6 +89,7 @@ private fun DialogTestScreen(
     showNormalScreenDialog: (Int) -> Unit,
     showBottomSheetScreenDialog: (Int) -> Unit,
     showCustomBottomSheetScreenDialog: (Int) -> Unit,
+    showReadMeScreen: (String) -> Unit
 ) {
     JohnAppTheme {
         Column(
@@ -94,10 +102,11 @@ private fun DialogTestScreen(
                 .padding(horizontal = MaterialTheme.spaceLarge)
                 .padding(bottom = MaterialTheme.spaceLarge)
         ) {
-            DialogItem("Full Screen",showFullScreenDialog)
-            DialogItem("Normal Prompt",showNormalScreenDialog)
-            DialogItem("ModalBottomSheet",showBottomSheetScreenDialog)
-            DialogItem("CustomBottomSheet",showCustomBottomSheetScreenDialog)
+            DialogItem("Full Screen",
+                { showReadMeScreen(ReadMeUrlList.Dialog.fullscreenDialogUrl) },showFullScreenDialog)
+            DialogItem("Normal Prompt",{ showReadMeScreen(ReadMeUrlList.Dialog.normalDialogUrl) },showNormalScreenDialog)
+            DialogItem("ModalBottomSheet",{ showReadMeScreen(ReadMeUrlList.Dialog.modalDialogUrl) },showBottomSheetScreenDialog)
+            DialogItem("CustomBottomSheet",{ showReadMeScreen(ReadMeUrlList.Dialog.customDialogUrl) },showCustomBottomSheetScreenDialog)
         }
     }
 }
@@ -105,6 +114,7 @@ private fun DialogTestScreen(
 @Composable
 private fun DialogItem(
     title:String,
+    onReadMeBtnClicked:()->Unit,
     onShowBtnClicked:(Int)->Unit) {
     Card(modifier = Modifier.padding(top = MaterialTheme.spaceLarge)) {
         Column(modifier = Modifier.padding(MaterialTheme.spaceLarge)) {
@@ -151,7 +161,7 @@ private fun DialogItem(
                     ),
                     modifier = Modifier.weight(1f)
                 )
-                IconButton(onClick = { onShowBtnClicked(itemSize.roundToInt()) }) {
+                IconButton(onClick = onReadMeBtnClicked) {
                     Icon(imageVector = Icons.Default.Info, contentDescription = "Icon Info")
                 }
                 IconButton(onClick = { onShowBtnClicked(itemSize.roundToInt()) }) {
@@ -169,6 +179,7 @@ fun PreviewDialogTestScreen() {
         showFullScreenDialog = {},
         showNormalScreenDialog = {},
         showBottomSheetScreenDialog = {},
-        showCustomBottomSheetScreenDialog = {}
+        showCustomBottomSheetScreenDialog = {},
+        showReadMeScreen = {}
     )
 }

@@ -18,8 +18,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "ComposeSample"
 include(":app")
-include(":feat:loadImage")
-include(":feat:dialog")
-include(":feat:fragmentcommunicate")
 include(":core:ui")
 include(":core:data")
+include(":feat:loadImage")
+include(":feat:dialog")
+include(":feat:fragmentCommunicate")
+include(":feat:cleanArch")
+include(":feat:cleanArch:data")

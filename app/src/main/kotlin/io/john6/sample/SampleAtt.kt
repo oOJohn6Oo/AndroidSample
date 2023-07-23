@@ -140,37 +140,6 @@ private fun SampleScreen(
     }
 }
 
-
-val allAvailableModuleInfo by lazy {
-    listOf(
-        FeatureModuleInfo(
-            "Load Image",
-            "Best practice to load/write images from/to local storage with minimal permission",
-            "loadImage",
-            safeGetClass("io.john6.sample.loadimage.LoadImageTest")
-        ),
-        FeatureModuleInfo(
-            "All Dialog",
-            "Best practice on implementing all kinds of dialog",
-            "dialog",
-            safeGetClass("io.john6.sample.dialog.DialogTestActivity")
-        ),
-        FeatureModuleInfo(
-            "Fragment Communication",
-            "Best practice on demonstrating how to communicate between fragments",
-            "fragmentCommunicate",
-            safeGetClass("io.john6.sample.fragmentcommunicate.FragmentCommunicateActivity")
-        ),
-    )
-}
-
-private fun safeGetClass(clazz: String) = try {
-    Class.forName(clazz)
-} catch (e: Exception) {
-    e.printStackTrace()
-    SampleAtt::class.java
-}
-
 @Composable
 private fun FeatureItem(featureModuleInfo: FeatureModuleInfo,
                         showModuleReadMe:()->Unit,
