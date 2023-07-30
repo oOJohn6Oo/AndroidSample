@@ -50,18 +50,15 @@ class DemoFullScreenDialog : AppCompatDialogFragment() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
-        val shapeAppearanceModel = ShapeAppearanceModel.builder()
-            .setAllCornerSizes(16.vdp)
-            .build()
-
         val colorSurface = MaterialColors.getColor(
             window.context,
             com.google.android.material.R.attr.colorSurface,
             Color.WHITE
         )
-        window.decorView.background = MaterialShapeDrawable(shapeAppearanceModel).apply {
+        window.decorView.background = MaterialShapeDrawable().apply {
             fillColor = colorSurface.tint
         }
+        window.decorView.setPadding(0,0,0,0)
         itemCount = arguments?.getInt("itemCount", 100) ?: 100
         val adapter = DemoAdapter()
         adapter.submitList(List(itemCount) { "item ${it + 1}" })

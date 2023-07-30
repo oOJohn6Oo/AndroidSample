@@ -47,6 +47,7 @@ class DemoNormalDialog: DialogFragment(){
             fillColor = colorSurface.tint
             elevation = dialog?.window?.decorView?.elevation ?: 4.vdp
         }
+        window.decorView.setPadding(0,0,0,0)
         itemCount = arguments?.getInt("itemCount", 100) ?: 100
         val adapter = DemoAdapter()
         adapter.submitList(List(itemCount) { "item ${it + 1}" })
