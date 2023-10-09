@@ -29,6 +29,12 @@ val allAvailableModuleInfo by lazy {
             "cleanArch",
             Util.safeGetClass("io.john6.sample.cleanarch.presentation.MainActivity")
         ),
+        FeatureModuleInfo(
+            "Double StickyHeader",
+            "Best practice on implementing 2 StickyHeader shows at same time",
+            "doubleStickyHeader",
+            Util.safeGetClass("io.john6.sample.doublestickyheader.DemoDoubleStickyHeaderActivity")
+        ),
     )
 }
 

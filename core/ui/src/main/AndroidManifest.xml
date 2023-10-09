@@ -7,7 +7,8 @@
 
         <activity
             android:name="io.john6.sample.ui.WebActivity"
-            android:configChanges="uiMode|orientation|screenSize|keyboardHidden|keyboard" />
+            android:configChanges="uiMode|orientation|screenSize|keyboardHidden|keyboard|density|screenLayout|smallestScreenSize|fontScale|layoutDirection"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

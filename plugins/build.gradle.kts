@@ -25,8 +25,8 @@ tasks.withType<KotlinCompile> {
 dependencies {
     //添加Gradle相关的API，否则无法自定义Plugin和Task
     implementation(gradleApi())
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
-    compileOnly("com.android.tools.build:gradle:8.0.2")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
+    compileOnly("com.android.tools.build:gradle:8.1.2")
 }
 
 gradlePlugin {
