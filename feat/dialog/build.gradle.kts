@@ -11,5 +11,5 @@ android {
 dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:data"))
-    implementation("com.google.android.material:material:1.9.0")
+    implementation("com.google.android.material:material:1.10.0")
 }

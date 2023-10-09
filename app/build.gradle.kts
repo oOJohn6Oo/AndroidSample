@@ -30,6 +30,8 @@ dependencies {
     runtimeOnly(project(":feat:dialog"))
     runtimeOnly(project(":feat:fragmentCommunicate"))
     runtimeOnly(project(":feat:cleanArch"))
+    runtimeOnly(project(":feat:doubleStickyHeader"))
+
     implementation(project(":core:ui"))
     implementation(project(":core:data"))
 }
