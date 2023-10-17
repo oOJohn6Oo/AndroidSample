@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.color.MaterialColors
-import com.john6.johnbase.util.vdp
+import io.john6.base.util.vdp
 import kotlin.math.roundToInt
 
 class DemoAdapter :

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <application android:theme="@style/Theme.John.BaseTheme.App">
+    <application android:theme="@style/Theme.John.BaseTheme.DayNight.AppTheme">
         <activity android:name=".FragmentCommunicateActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|keyboard"/>
     </application>

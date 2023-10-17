@@ -11,8 +11,8 @@ import androidx.core.view.ViewCompat
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.color.MaterialColors
-import com.john6.johnbase.util.log
-import com.john6.johnbase.util.safeDrawing
+import io.john6.base.util.log
+import io.john6.base.util.safeDrawing
 import io.john6.sample.dialog.databinding.DialogDemoBottomSheetBinding
 
 class DemoModalBottomSheetDialog : BottomSheetDialogFragment() {

@@ -6,7 +6,7 @@
 
 * 在 Activity 主题中指定所有在此 Activity 中的弹窗都使用此主题
 ```xml
-<style name="CustomAtt" parent="Theme.John.BaseTheme.App">
+<style name="CustomAtt" parent="Theme.John.BaseTheme.DayNight.AppTheme">
     <item name="bottomSheetDialogTheme">@style/ModalBottomSheetDialog</item>
 </style>
 ```

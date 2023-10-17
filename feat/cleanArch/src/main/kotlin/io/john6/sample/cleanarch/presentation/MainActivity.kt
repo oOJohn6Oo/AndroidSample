@@ -11,7 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import io.john6.johnbase.compose.JohnAppTheme
+import io.john6.base.compose.JAppTheme
 import io.john6.sample.cleanarch.presentation.ui.detail.PostDetailScreen
 import io.john6.sample.cleanarch.presentation.ui.detail.PostDetailViewModel
 import io.john6.sample.cleanarch.presentation.ui.list.PostListScreen
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
 
-            JohnAppTheme {
+            JAppTheme {
                 val navController = rememberNavController()
 
                 NavHost(

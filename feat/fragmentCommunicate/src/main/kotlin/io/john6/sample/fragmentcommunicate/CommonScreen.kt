@@ -25,9 +25,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
-import io.john6.johnbase.compose.JohnAppTheme
-import io.john6.johnbase.compose.spaceLarge
-import io.john6.johnbase.compose.spaceMedium
+import io.john6.base.compose.JAppTheme
+import io.john6.base.compose.spaceLarge
+import io.john6.base.compose.spaceMedium
 
 /**
  * Common UI for all page in this module
@@ -48,7 +48,7 @@ fun CommonScreen(
     onInfoBtnClick: () -> Unit,
     onShowBtnClick: (Int) -> Unit,
 ) {
-    JohnAppTheme{
+    JAppTheme{
         CompositionLocalProvider(LocalContentColor provides MaterialTheme.colors.onSurface){
             Column(
                 modifier = Modifier

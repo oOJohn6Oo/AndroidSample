@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import io.john6.johnbase.compose.spaceLarge
+import io.john6.base.compose.spaceLarge
 
 @Composable
 fun EmptyView(onBtnRetryClick: () -> Unit) {

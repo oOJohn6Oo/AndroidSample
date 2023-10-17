@@ -28,17 +28,13 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.PlaceholderVerticalAlign
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.WindowCompat
-import com.john6.johnbase.util.log
-import io.john6.johnbase.compose.JohnAppTheme
-import io.john6.johnbase.compose.findWindow
-import io.john6.johnbase.compose.spaceSmall
+import io.john6.base.compose.JAppTheme
+import io.john6.base.compose.spaceSmall
 
 class WebActivity : ComponentActivity() {
 
@@ -90,7 +86,7 @@ class WebActivity : ComponentActivity() {
 private fun WebScreen(initialUrl: String,
                       setWebView:(WebView) -> Unit,
                       onBackPressed: () -> Unit) {
-    JohnAppTheme {
+    JAppTheme {
         Column(
             modifier = Modifier
                 .fillMaxSize()

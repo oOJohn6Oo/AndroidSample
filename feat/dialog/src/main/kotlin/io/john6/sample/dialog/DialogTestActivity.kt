@@ -41,8 +41,8 @@ import androidx.compose.ui.text.PlaceholderVerticalAlign
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
-import io.john6.johnbase.compose.JohnAppTheme
-import io.john6.johnbase.compose.spaceLarge
+import io.john6.base.compose.JAppTheme
+import io.john6.base.compose.spaceLarge
 import io.john6.sample.data.ReadMeUrlList
 import io.john6.sample.ui.WebActivity
 import kotlin.math.roundToInt
@@ -91,7 +91,7 @@ private fun DialogTestScreen(
     showCustomBottomSheetScreenDialog: (Int) -> Unit,
     showReadMeScreen: (String) -> Unit
 ) {
-    JohnAppTheme {
+    JAppTheme {
         Column(
             modifier = Modifier
                 .fillMaxSize()

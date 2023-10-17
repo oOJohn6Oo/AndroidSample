@@ -77,9 +77,9 @@ import androidx.compose.ui.window.Dialog
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.coroutineScope
-import io.john6.johnbase.compose.JohnAppTheme
-import io.john6.johnbase.compose.spaceLarge
-import io.john6.johnbase.compose.spaceMedium
+import io.john6.base.compose.JAppTheme
+import io.john6.base.compose.spaceLarge
+import io.john6.base.compose.spaceMedium
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -120,7 +120,7 @@ private fun ReadScreen(
     fireUIEvent: (ReadTestUIEvent) -> Unit,
     isPermissionGranted: () -> String?,
 ) {
-    JohnAppTheme {
+    JAppTheme {
 
         val pickActionLauncher = rememberLauncherForActivityResult(PickImage()) {
             if (it.isNotEmpty()) {

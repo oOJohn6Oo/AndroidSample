@@ -2,7 +2,7 @@ package io.john6.sample.doublestickyheader
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.john6.johnbase.util.log
+import io.john6.base.util.log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay

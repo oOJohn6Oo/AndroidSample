@@ -25,7 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
-import io.john6.johnbase.compose.JohnAppTheme
+import io.john6.base.compose.JAppTheme
 
 class LoadImageTest : ComponentActivity() {
 
@@ -54,7 +54,7 @@ fun PreviewMainScreen() {
 
 @Composable
 fun MainScreen(startReadTest: () -> Unit = {}, startWriteTest: () -> Unit = {}) {
-    JohnAppTheme {
+    JAppTheme {
         BoxWithConstraints(
             modifier = Modifier
                 .fillMaxSize()

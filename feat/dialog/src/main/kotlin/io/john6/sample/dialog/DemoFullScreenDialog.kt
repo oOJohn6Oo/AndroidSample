@@ -10,12 +10,9 @@ import androidx.core.view.WindowCompat
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.color.MaterialColors
 import com.google.android.material.shape.MaterialShapeDrawable
-import com.google.android.material.shape.ShapeAppearanceModel
-import com.john6.johnbase.util.InsetsHelper
-import com.john6.johnbase.util.log
-import com.john6.johnbase.util.safeDrawing
-import com.john6.johnbase.util.tint
-import com.john6.johnbase.util.vdp
+import io.john6.base.util.JInsetsHelper
+import io.john6.base.util.safeDrawing
+import io.john6.base.util.tint
 import io.john6.sample.dialog.databinding.DialogDemoBottomSheetBinding
 
 class DemoFullScreenDialog : AppCompatDialogFragment() {
@@ -23,7 +20,7 @@ class DemoFullScreenDialog : AppCompatDialogFragment() {
     private val mBinding: DialogDemoBottomSheetBinding get() = _mBinding!!
 
     private var itemCount: Int = defaultItemCount
-    private val mInsetsHelper = InsetsHelper().apply {
+    private val mInsetsHelper = JInsetsHelper().apply {
         enforceNavBar = true
     }
 

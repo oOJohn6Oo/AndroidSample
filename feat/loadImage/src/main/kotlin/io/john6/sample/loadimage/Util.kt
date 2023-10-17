@@ -13,7 +13,7 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.text.format.DateFormat
-import com.john6.johnbase.util.log
+import io.john6.base.util.log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
