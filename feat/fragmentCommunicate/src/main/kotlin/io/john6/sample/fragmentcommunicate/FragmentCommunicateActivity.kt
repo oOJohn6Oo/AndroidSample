@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.collectAsState
 import androidx.core.view.WindowCompat
-import com.john6.johnbase.util.isNightModeNow
+import io.john6.base.util.isNightModeNow
 import io.john6.sample.data.ReadMeUrlList
 import io.john6.sample.fragmentcommunicate.databinding.ActivityDemoFragmentCommunicateBinding
 import io.john6.sample.ui.WebActivity

@@ -37,13 +37,13 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import io.john6.johnbase.compose.JohnAppTheme
-import io.john6.johnbase.compose.spaceLarge
-import io.john6.johnbase.compose.spaceMedium
+import io.john6.base.compose.JAppTheme
+import io.john6.base.compose.spaceLarge
+import io.john6.base.compose.spaceMedium
 
 @Composable
 fun DemoDoubleStickyHeaderScreen() {
-    JohnAppTheme {
+    JAppTheme {
 
         val state = rememberLazyListState()
 

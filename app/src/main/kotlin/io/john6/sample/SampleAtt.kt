@@ -47,9 +47,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.core.view.WindowCompat
-import io.john6.johnbase.compose.JohnAppTheme
-import io.john6.johnbase.compose.spaceLarge
-import io.john6.johnbase.compose.spaceMedium
+import io.john6.base.compose.JAppTheme
+import io.john6.base.compose.spaceLarge
+import io.john6.base.compose.spaceMedium
 import io.john6.sample.data.ReadMeUrlList
 import io.john6.sample.ui.WebActivity
 
@@ -81,7 +81,7 @@ private fun SampleScreen(
     onShowModuleReadMe: (String) -> Unit,
     onClickDetailIcon: () -> Unit
 ) {
-    JohnAppTheme {
+    JAppTheme {
 
         val state = rememberLazyListState()
         val topAppBarElevation by animateDpAsState(

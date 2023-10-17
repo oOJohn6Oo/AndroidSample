@@ -10,8 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.john6.johnbase.util.log
-import com.john6.johnbase.util.visible
+import io.john6.base.util.log
+import io.john6.base.util.visible
 import io.john6.sample.data.ReadMeUrlList
 import io.john6.sample.fragmentcommunicate.databinding.ActivityDemoFragmentCommunicateBinding
 import io.john6.sample.ui.WebActivity

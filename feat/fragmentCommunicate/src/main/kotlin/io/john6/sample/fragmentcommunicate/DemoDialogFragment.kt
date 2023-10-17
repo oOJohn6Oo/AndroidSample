@@ -10,7 +10,7 @@ import androidx.compose.material.icons.filled.Done
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import com.john6.johnbase.util.getColorInt
+import io.john6.base.util.getColorInt
 import io.john6.sample.data.ReadMeUrlList
 import io.john6.sample.ui.WebActivity
 

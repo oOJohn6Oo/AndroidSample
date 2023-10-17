@@ -4,7 +4,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import androidx.annotation.ColorInt
 import androidx.recyclerview.widget.RecyclerView
-import com.john6.johnbase.util.vdp
+import io.john6.base.util.vdp
 
 /**
  * A [RecyclerView.ItemDecoration] that draws a line at top and bottom of the [RecyclerView].

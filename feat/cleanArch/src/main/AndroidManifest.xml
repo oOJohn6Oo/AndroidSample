@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <application android:theme="@style/Theme.John.BaseTheme.App" >
+    <application android:theme="@style/Theme.John.BaseTheme.DayNight.AppTheme" >
         <activity android:name="io.john6.sample.cleanarch.presentation.MainActivity"
             android:configChanges="uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden"/>
     </application>

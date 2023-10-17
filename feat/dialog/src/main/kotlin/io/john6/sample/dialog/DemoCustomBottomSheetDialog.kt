@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.color.MaterialColors
-import com.john6.johnbase.util.InsetsHelper
-import com.john6.johnbase.util.safeDrawing
-import com.john6.johnbase.util.setBottomPadding
+import io.john6.base.util.JInsetsHelper
+import io.john6.base.util.safeDrawing
+import io.john6.base.util.setBottomPadding
 import io.john6.sample.dialog.databinding.DialogDemoBottomSheetBinding
 
 class DemoCustomBottomSheetDialog: BottomSheetDialogFragment() {
@@ -20,7 +20,7 @@ class DemoCustomBottomSheetDialog: BottomSheetDialogFragment() {
 
     private var itemCount: Int = defaultItemCount
 
-    private val mInsetsHelper = InsetsHelper().apply {
+    private val mInsetsHelper = JInsetsHelper().apply {
         enforceNavBar = true
     }
 

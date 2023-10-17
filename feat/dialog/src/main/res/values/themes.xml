@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="CustomAtt" parent="Theme.John.BaseTheme.App">
+    <style name="CustomAtt" parent="Theme.John.BaseTheme.DayNight.AppTheme">
         <item name="bottomSheetDialogTheme">@style/ModalBottomSheetDialog</item>
     </style>
 
