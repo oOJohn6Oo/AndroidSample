@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "io.john6.sample.imageload"
+    namespace = "io.john6.sample.loadimage"
 }
 
 dependencies {
