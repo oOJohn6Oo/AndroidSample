@@ -18,6 +18,6 @@ dependencies {
     api("androidx.compose.material:material-icons-extended:1.5.3")
 
     // Personal library contains common util code
-    api("com.github.oOJohn6Oo.BaseAndroid:john-base:1.0.7")
-    api("com.github.oOJohn6Oo.BaseAndroid:john-base-compose:1.0.7")
+    api("com.github.oOJohn6Oo.BaseAndroid:john-base:1.0.8")
+    api("com.github.oOJohn6Oo.BaseAndroid:john-base-compose:1.0.8")
 }
